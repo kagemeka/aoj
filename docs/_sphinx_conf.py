@@ -5,7 +5,7 @@ import typing
 
 import sphinx_theme_pd
 
-project = "Algo Method"
+project = "AOJ"
 author = "Hiroshi Tsuyuki <kagemeka1@gmail.com>"
 copyright = f"2022, {author}"
 
