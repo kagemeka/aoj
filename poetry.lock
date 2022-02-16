@@ -933,7 +933,7 @@ urllib3 = {version = ">=1.26,<2.0", extras = ["secure"]}
 
 [[package]]
 name = "selext"
-version = "0.2.0"
+version = "0.2.1"
 description = "Selenium Extension for Python"
 category = "main"
 optional = false
@@ -1216,7 +1216,7 @@ python-versions = "*"
 
 [[package]]
 name = "types-requests"
-version = "2.27.9"
+version = "2.27.10"
 description = "Typing stubs for requests"
 category = "dev"
 optional = false
@@ -1356,7 +1356,7 @@ docs = ["sphinx", "furo", "myst-parser", "sphinx_rtd_theme", "sphinxcontrib-merm
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8,<3.11"
-content-hash = "176ff6297d3ce4296edc6f14a99f46583c269c9a56f7b9b62ce550e4134cedb3"
+content-hash = "a30b6af64f88440f918a572f165864e7cc95005ff76a71618e058b07b695e1e6"
 
 [metadata.files]
 aiohttp = [
@@ -2097,8 +2097,8 @@ selenium = [
     {file = "selenium-4.1.0-py3-none-any.whl", hash = "sha256:27e7b64df961d609f3d57237caa0df123abbbe22d038f2ec9e332fb90ec1a939"},
 ]
 selext = [
-    {file = "selext-0.2.0-py3-none-any.whl", hash = "sha256:fad11a3f3208eb3bb801037f13fea73ed79cf0ab31c109fe84d93a78caf9333d"},
-    {file = "selext-0.2.0.tar.gz", hash = "sha256:0c64b56f4d4657edff2e362577fb58d2ec52a3ce15a43becc039619199ea8697"},
+    {file = "selext-0.2.1-py3-none-any.whl", hash = "sha256:e2f8885fb0bdf7a8247d806d52086f72b11bcba20a7ff571d9366546c21e70ac"},
+    {file = "selext-0.2.1.tar.gz", hash = "sha256:f275f84877a0b4f1458cc4079dc9d2c9b6cd1bdff6aca9b5dc1041bd566ea264"},
 ]
 six = [
     {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
@@ -2192,8 +2192,8 @@ types-pyyaml = [
     {file = "types_PyYAML-6.0.4-py3-none-any.whl", hash = "sha256:693b01c713464a6851f36ff41077f8adbc6e355eda929addfb4a97208aea9b4b"},
 ]
 types-requests = [
-    {file = "types-requests-2.27.9.tar.gz", hash = "sha256:7368974534d297939492efdfdab232930440b11e2203f6df1f0c40e3242a87ea"},
-    {file = "types_requests-2.27.9-py3-none-any.whl", hash = "sha256:74070045418faf710f3154403d6a16c9e67db50e5119906ca6955f1658d20f7b"},
+    {file = "types-requests-2.27.10.tar.gz", hash = "sha256:5dcb088fcaa778efeee6b7fc46967037e983fbfb9fec02594578bd33fd75e555"},
+    {file = "types_requests-2.27.10-py3-none-any.whl", hash = "sha256:6cb4fb0bbcbc585c57eeee6ffe5a47638dc89706b8d290ec89a77213fc5bad1a"},
 ]
 types-setuptools = [
     {file = "types-setuptools-57.4.9.tar.gz", hash = "sha256:536ef74744f8e1e4be4fc719887f886e74e4cf3c792b4a06984320be4df450b5"},
