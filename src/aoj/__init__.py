@@ -13,7 +13,7 @@ __version__ = importlib.metadata.version("aoj-api")
 
 _SITE_URL = "https://onlinejudge.u-aizu.ac.jp"
 _USERS_URL = f"{_SITE_URL}/status/users"
-
+_WAIT_TIME = 1.0
 
 def _parse_html(html: str) -> bs4.BeautifulSoup:
     return bs4.BeautifulSoup(html, "html.parser")
@@ -35,7 +35,7 @@ def fetch_page_submissions(
 ) -> typing.Iterator[Submission]:
     url = f"{_USERS_URL}/{user_id}/submissions/{page}"
     driver.get(url)
-    time.sleep(0.5)
+    time.sleep(_WAIT_TIME)
     html = driver.page_source
     soup = _parse_html(html)
     table = soup.find_all("table")[1]
@@ -62,7 +62,7 @@ def fetch_pagination(
 ) -> Pagination:
     url = f"{_USERS_URL}/{user_id}/submissions/1"
     driver.get(url)
-    time.sleep(0.5)
+    time.sleep(_WAIT_TIME)
     html = driver.page_source
     soup = _parse_html(html)
     pagination = soup.find("div", class_="pagination")
