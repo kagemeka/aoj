@@ -11,25 +11,25 @@ classifiers = [
   "Operating System :: OS Independent",
 ]
 description = "This is a template for python projects."
-documentation = "https://algomethod.readthedocs.io"
+documentation = "https://aoj.readthedocs.io"
 exclude = [
   "**/tests/",
   "**/*_test.py",
   "**/test_*.py",
   "**/_test_*.py",
 ]
-homepage = "https://github.com/kagemeka/algomethod/#readme"
+homepage = "https://github.com/kagemeka/aoj/#readme"
 include = []
-keywords = ["algomethod"]
+keywords = ["aoj"]
 license = "MIT"
 maintainers = ["Hiroshi Tsuyuki <kagemeka1@gmail.com>"]
-name = "algomethod"
+name = "aoj-api"
 packages = [
-  {include = "algomethod", from = "src"},
+  {include = "aoj", from = "src"},
 ]
 readme = "README.md"
-repository = "https://github.com/kagemeka/algomethod"
-version = "0.1.3"
+repository = "https://github.com/kagemeka/aoj"
+version = "0.2.1"
 
 [tool.poetry.dependencies]
 aiohttp = "^"
@@ -39,10 +39,6 @@ python = ">=3.8,<3.11"
 requests = "^"
 selenium = "^"
 selext = "0.2.1"
-
-# [[tool.poetry.source]]
-# name = 'private'
-# url = 'http://example.com/simple'
 
 furo = {version = "^", optional = true}
 myst-parser = {version = "^", optional = true}

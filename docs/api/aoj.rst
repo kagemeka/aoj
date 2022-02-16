@@ -1,10 +1,10 @@
-algomethod package
-==================
+aoj package
+===========
 
 Module contents
 ---------------
 
-.. automodule:: algomethod
+.. automodule:: aoj
    :members:
    :undoc-members:
    :show-inheritance:
