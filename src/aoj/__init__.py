@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+import asyncio
 import dataclasses
 import importlib.metadata
-import time
 import typing
 
 import aiohttp
@@ -13,6 +13,8 @@ __version__ = importlib.metadata.version("aoj-api")
 
 _SITE_URL = "https://onlinejudge.u-aizu.ac.jp"
 _USERS_URL = f"{_SITE_URL}/status/users"
+_REVIEW_URL = "https://judgeapi.u-aizu.ac.jp/reviews"
+_WAIT_TIME = 1.0
 
 
 def _parse_html(html: str) -> bs4.BeautifulSoup:
@@ -28,14 +30,14 @@ class Submission:
     code: str | None = None
 
 
-def fetch_page_submissions(
+async def fetch_page_submissions(
     driver: selenium.webdriver.Chrome,
     user_id: str,
     page: int,
-) -> typing.Iterator[Submission]:
+) -> typing.AsyncIterator[Submission]:
     url = f"{_USERS_URL}/{user_id}/submissions/{page}"
     driver.get(url)
-    time.sleep(0.2)
+    await asyncio.sleep(_WAIT_TIME)
     html = driver.page_source
     soup = _parse_html(html)
     table = soup.find_all("table")[1]
@@ -56,13 +58,13 @@ class Pagination:
     last: int
 
 
-def fetch_pagination(
+async def fetch_pagination(
     driver: selenium.webdriver.Chrome,
     user_id: str,
 ) -> Pagination:
     url = f"{_USERS_URL}/{user_id}/submissions/1"
     driver.get(url)
-    time.sleep(0.2)
+    await asyncio.sleep(_WAIT_TIME)
     html = driver.page_source
     soup = _parse_html(html)
     pagination = soup.find("div", class_="pagination")
@@ -71,16 +73,14 @@ def fetch_pagination(
     return Pagination(current, last)
 
 
-def fetch_submissions(
+async def fetch_submissions(
     driver: selenium.webdriver.Chrome,
     user_id: str,
-) -> typing.Iterator[Submission]:
-    pagination = fetch_pagination(driver, user_id)
+) -> typing.AsyncIterator[Submission]:
+    pagination = await fetch_pagination(driver, user_id)
     for page in range(1, pagination.last + 1):
-        yield from fetch_page_submissions(driver, user_id, page)
-
-
-_REVIEW_URL = "https://judgeapi.u-aizu.ac.jp/reviews"
+        async for submission in fetch_page_submissions(driver, user_id, page):
+            yield submission
 
 
 async def fetch_submission_code(
