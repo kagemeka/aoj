@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  package_dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: kagemeka/$PROJECT_NAME:$PROJECT_VERSION
+    restart: on-failure
+    tty: true
+    volumes:
+      - type: bind
+        source: $PROJECT_ROOT
+        target: /root/$PROJECT_NAME
+        volume:
+          nocopy: true
+        read_only: false
+    working_dir: /root/$PROJECT_NAME
